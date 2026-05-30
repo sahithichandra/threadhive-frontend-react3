@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "/api";
 // const API_BASE_URL = "https://w04-mls.onrender.com/api";
 
 // Utility function to make fetch requests

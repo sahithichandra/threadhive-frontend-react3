@@ -24,8 +24,26 @@ function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const { loginUser } = useAuth();
+
   const handleSubmit = async (e) => {
-    //Your Code Here
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await login(form);
+      loginUser(data);
+      navigate("/home");
+    } catch (err) {
+      const errorMessage =
+        err.response?.data?.error ||
+        err.response?.data?.message ||
+        err.message ||
+        "Login failed. Please try again.";
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
