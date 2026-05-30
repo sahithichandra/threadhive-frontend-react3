@@ -10,7 +10,7 @@ import { Container, Card } from "react-bootstrap";
 import './ThreadPage.css';
 
 export default function ThreadPage() {
-  const { threadId } = useParams();
+  const { id: threadId } = useParams();
   const navigate = useNavigate();
 
   const [commentText, setCommentText] = useState('');

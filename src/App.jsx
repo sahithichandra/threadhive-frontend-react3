@@ -11,10 +11,6 @@ import CreateThreadForm from "./components/Forms/CreateThreadForm";
 import "./App.css";
 
 function App() {
-  /*function handleOnClose() {
-    // Logic to close the CreateThreadForm modal
-    console.log('Close');
-  } */
   return (
     <AuthProvider>
         <BrowserRouter>
@@ -22,12 +18,12 @@ function App() {
             <Header />
             <div className="app-container">
               <main className="main-center-content">
-                {/* <CreateThreadForm onClose={handleOnClose}/> */}
                 <Routes>
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />   
                   <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
                   <Route path="/thread/:id" element={<PrivateRoute><ThreadPage /></PrivateRoute>} />
+                  <Route path="/create-thread" element={<PrivateRoute><CreateThreadForm onClose={() => window.history.back()} /></PrivateRoute>} />
                   <Route path="*" element={<Navigate to="/login" replace />} />
                 </Routes>
               </main>
